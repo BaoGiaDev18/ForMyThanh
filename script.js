@@ -15,8 +15,9 @@ function moveButton(button) {
   while (attempts > 0 && !moved) {
     // Lấy kích thước của container
     const container = document.querySelector(".container");
-    const containerWidth = container.offsetWidth;
-    const containerHeight = container.offsetHeight;
+    const containerRect = container.getBoundingClientRect(); // Lấy vị trí và kích thước của container
+    const containerWidth = containerRect.width;
+    const containerHeight = containerRect.height;
 
     // Lấy kích thước của nút
     const buttonWidth = button.offsetWidth;
@@ -35,7 +36,6 @@ function moveButton(button) {
     const mouseY = event.clientY;
 
     // Tính toán vị trí của nút so với màn hình
-    const containerRect = container.getBoundingClientRect();
     const buttonX = containerRect.left + newX;
     const buttonY = containerRect.top + newY;
 
@@ -44,7 +44,7 @@ function moveButton(button) {
 
     // Nếu khoảng cách đủ xa, chuyển nút đến vị trí mới
     if (distanceX > 50 && distanceY > 50) {
-      // 50 là khoảng cách tối thiểu
+      // Đảm bảo nút không bị di chuyển ra ngoài container
       button.style.transform = `translate(${newX}px, ${newY}px)`;
       moved = true;
     }
