@@ -9,24 +9,22 @@ function showMessage() {
 }
 
 function moveButton(button) {
-  // Lấy kích thước của container
-  const container = document.querySelector(".container");
-  const containerRect = container.getBoundingClientRect(); // Lấy vị trí và kích thước của container
-  const containerWidth = containerRect.width;
-  const containerHeight = containerRect.height;
+  // Lấy kích thước của cửa sổ trình duyệt (viewport)
+  const windowWidth = window.innerWidth;
+  const windowHeight = window.innerHeight;
 
   // Lấy kích thước của nút
   const buttonWidth = button.offsetWidth;
   const buttonHeight = button.offsetHeight;
 
-  // Đặt giới hạn cho vị trí di chuyển trong container
-  const maxX = containerWidth - buttonWidth;
-  const maxY = containerHeight - buttonHeight;
+  // Đặt giới hạn cho vị trí di chuyển trong toàn bộ cửa sổ (viewport)
+  const maxX = windowWidth - buttonWidth;
+  const maxY = windowHeight - buttonHeight;
 
-  // Tạo vị trí ngẫu nhiên trong giới hạn
+  // Tạo vị trí ngẫu nhiên trong giới hạn của cửa sổ
   const newX = Math.random() * maxX;
   const newY = Math.random() * maxY;
 
-  // Đảm bảo nút không bị di chuyển ra ngoài container
+  // Đảm bảo nút không bị di chuyển ra ngoài cửa sổ (viewport)
   button.style.transform = `translate(${newX}px, ${newY}px)`;
 }
