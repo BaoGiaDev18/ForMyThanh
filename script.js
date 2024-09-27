@@ -1,5 +1,11 @@
 function showMessage() {
+  // Hiện thông báo đầu tiên
   document.getElementById("message").textContent = "Cảm ơn bạn đã tha thứ!";
+
+  // Hiện thông báo bổ sung sau đó
+  setTimeout(() => {
+    document.getElementById("additionalMessage").style.display = "block";
+  }, 1000); // Hiện thông báo mới sau 1 giây
 }
 
 function moveButton(button) {
@@ -7,15 +13,18 @@ function moveButton(button) {
   let moved = false;
 
   while (attempts > 0 && !moved) {
-    // Lấy kích thước màn hình
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
+    // Lấy kích thước của container
+    const container = document.querySelector(".container");
+    const containerWidth = container.offsetWidth;
+    const containerHeight = container.offsetHeight;
+
+    // Lấy kích thước của nút
     const buttonWidth = button.offsetWidth;
     const buttonHeight = button.offsetHeight;
 
-    // Đặt giới hạn cho vị trí di chuyển trong màn hình
-    const maxX = windowWidth - buttonWidth;
-    const maxY = windowHeight - buttonHeight;
+    // Đặt giới hạn cho vị trí di chuyển trong container
+    const maxX = containerWidth - buttonWidth;
+    const maxY = containerHeight - buttonHeight;
 
     // Tạo vị trí ngẫu nhiên trong giới hạn
     const newX = Math.random() * maxX;
@@ -25,8 +34,13 @@ function moveButton(button) {
     const mouseX = event.clientX;
     const mouseY = event.clientY;
 
-    const distanceX = Math.abs(mouseX - (newX + buttonWidth / 2));
-    const distanceY = Math.abs(mouseY - (newY + buttonHeight / 2));
+    // Tính toán vị trí của nút so với màn hình
+    const containerRect = container.getBoundingClientRect();
+    const buttonX = containerRect.left + newX;
+    const buttonY = containerRect.top + newY;
+
+    const distanceX = Math.abs(mouseX - (buttonX + buttonWidth / 2));
+    const distanceY = Math.abs(mouseY - (buttonY + buttonHeight / 2));
 
     // Nếu khoảng cách đủ xa, chuyển nút đến vị trí mới
     if (distanceX > 50 && distanceY > 50) {

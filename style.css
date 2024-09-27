@@ -17,10 +17,12 @@ body {
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  position: relative; /* Để tạo phạm vi giới hạn cho nút */
 }
 
 .buttons {
   margin-top: 20px;
+  position: relative; /* Để giới hạn nút trong div container */
 }
 
 button {
@@ -30,7 +32,7 @@ button {
   cursor: pointer;
   border: none;
   border-radius: 5px;
-  position: relative;
+  position: relative; /* Chỉ định vị trí cho nút */
   transition: transform 0.3s ease; /* Thêm hiệu ứng chuyển động mượt */
 }
 
@@ -42,5 +44,5 @@ button {
 .no {
   background-color: #f44336;
   color: white;
-  position: absolute; /* Cho phép di chuyển tự do trên toàn trang */
+  position: absolute; /* Cho phép di chuyển tự do nhưng trong phạm vi container */
 }
