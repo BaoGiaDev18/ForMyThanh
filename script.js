@@ -1,6 +1,7 @@
 function showMessage() {
   // Hiện thông báo đầu tiên
-  document.getElementById("message").textContent = "Cảm ơn bạn đã tha thứ!";
+  document.getElementById("message").textContent =
+    "Âu kay cổ đã hết dỗi ảnh r nhaa :)))";
 
   // Hiện thông báo bổ sung sau đó
   setTimeout(() => {
