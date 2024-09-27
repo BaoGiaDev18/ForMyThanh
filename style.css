@@ -3,10 +3,11 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url("images/bg.jpg"); /* Đường dẫn tới ảnh nền */
+  background-image: url("images/bg.png"); /* Đường dẫn tới ảnh nền */
   background-size: cover;
+  background-position: center;
   margin: 0;
-  overflow: hidden; /* Không hiển thị thanh cuộn */
+  overflow: hidden;
   font-family: Arial, sans-serif;
 }
 
@@ -29,7 +30,8 @@ button {
   cursor: pointer;
   border: none;
   border-radius: 5px;
-  position: relative; /* Chỉ định vị trí cho nút */
+  position: relative;
+  transition: transform 0.3s ease; /* Thêm hiệu ứng chuyển động mượt */
 }
 
 .yes {

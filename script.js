@@ -7,15 +7,19 @@ function moveButton(button) {
   let moved = false;
 
   while (attempts > 0 && !moved) {
-    // Tạo vị trí ngẫu nhiên cho nút
+    // Lấy kích thước màn hình
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
     const buttonWidth = button.offsetWidth;
     const buttonHeight = button.offsetHeight;
 
-    // Đặt giới hạn cho vị trí vượt ra ngoài màn hình (khoảng 200px)
-    const newX = Math.random() * (windowWidth + 400) - 200;
-    const newY = Math.random() * (windowHeight + 400) - 200;
+    // Đặt giới hạn cho vị trí di chuyển trong màn hình
+    const maxX = windowWidth - buttonWidth;
+    const maxY = windowHeight - buttonHeight;
+
+    // Tạo vị trí ngẫu nhiên trong giới hạn
+    const newX = Math.random() * maxX;
+    const newY = Math.random() * maxY;
 
     // Kiểm tra khoảng cách mới với vị trí con trỏ chuột
     const mouseX = event.clientX;
