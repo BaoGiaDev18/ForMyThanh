@@ -26,5 +26,7 @@ function moveButton(button) {
   const newY = Math.random() * maxY;
 
   // Đảm bảo nút không bị di chuyển ra ngoài cửa sổ (viewport)
-  button.style.transform = `translate(${newX}px, ${newY}px)`;
+  button.style.position = "absolute"; // Chuyển sang position absolute để di chuyển tự do
+  button.style.left = `${newX}px`; // Đặt vị trí ngang
+  button.style.top = `${newY}px`; // Đặt vị trí dọc
 }

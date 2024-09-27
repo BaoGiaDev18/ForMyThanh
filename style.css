@@ -46,7 +46,9 @@ button {
 .no {
   background-color: #f44336;
   color: white;
-  position: absolute; /* Cho phép di chuyển tự do nhưng trong phạm vi container */
+  position: absolute; /* Sử dụng absolute để di chuyển tự do */
+  cursor: pointer; /* Con trỏ chỉ tay */
+  transition: left 0.3s ease, top 0.3s ease; /* Thêm hiệu ứng mượt */
 }
 
 /* Responsive cho thiết bị di động */
