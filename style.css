@@ -3,9 +3,10 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url("images/bg.jpg"); /* Cập nhật đường dẫn ảnh */
+  background-image: url("images/bg.jpg"); /* Đường dẫn tới ảnh nền */
   background-size: cover;
   margin: 0;
+  overflow: hidden; /* Không hiển thị thanh cuộn */
   font-family: Arial, sans-serif;
 }
 
@@ -39,4 +40,5 @@ button {
 .no {
   background-color: #f44336;
   color: white;
+  position: absolute; /* Cho phép di chuyển tự do trên toàn trang */
 }
